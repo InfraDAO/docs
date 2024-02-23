@@ -1,0 +1,48 @@
+# Table of contents
+
+* [InfraDAO Overview](README.md)
+
+## ⌨️ Indexing 101
+
+* [Linux and Ethereum Clients](indexing-101/linux-and-ethereum-clients/README.md)
+  * [Introduction to Linux](indexing-101/linux-and-ethereum-clients/introduction-to-linux.md)
+  * [Getting started with Ethereum Clients](indexing-101/linux-and-ethereum-clients/getting-started-with-ethereum-clients.md)
+  * [Lab 1: Sync a Gnosis blockchain node](indexing-101/linux-and-ethereum-clients/lab-1.md)
+
+## ⌨️ Archive Nodes 101
+
+* [⏫ Arbitrum](archive-nodes-101/arbitrum/README.md)
+  * [💻 Baremetal](archive-nodes-101/arbitrum/baremetal.md)
+  * [🐳 Docker](archive-nodes-101/arbitrum/docker.md)
+* [🏔️ Avalanche](archive-nodes-101/avalanche/README.md)
+  * [🐳 Docker](archive-nodes-101/avalanche/docker.md)
+* [🔵 Base](archive-nodes-101/base/README.md)
+  * [🐳 Docker](archive-nodes-101/base/docker.md)
+* [🟨 Celo](archive-nodes-101/celo/README.md)
+  * [🐳 Docker](archive-nodes-101/celo/docker.md)
+* [🔷 Ethereum](archive-nodes-101/ethereum/README.md)
+  * [🦦 Erigon](archive-nodes-101/ethereum/erigon/README.md)
+    * [💻 Baremetal](archive-nodes-101/ethereum/erigon/baremetal.md)
+    * [🐳 Docker](archive-nodes-101/ethereum/erigon/docker.md)
+  * [🔹 Geth](archive-nodes-101/ethereum/geth.md)
+  * [🧠 Nethermind](archive-nodes-101/ethereum/nethermind.md)
+  * [🦀 Reth](archive-nodes-101/ethereum/reth/README.md)
+    * [💻 Baremetal](archive-nodes-101/ethereum/reth/baremetal.md)
+    * [🐳 Docker](archive-nodes-101/ethereum/reth/docker.md)
+* [👻 Fantom](archive-nodes-101/fantom/README.md)
+  * [🐳 Docker](archive-nodes-101/fantom/docker.md)
+* [🦉 Gnosis](archive-nodes-101/gnosis/README.md)
+  * [🦦 Erigon](archive-nodes-101/gnosis/erigon/README.md)
+    * [💻 Baremetal](archive-nodes-101/gnosis/erigon/baremetal.md)
+    * [🐳 Docker](archive-nodes-101/gnosis/erigon/docker.md)
+  * [🧠 Nethermind](archive-nodes-101/gnosis/nethermind/README.md)
+    * [💻 Baremetal](archive-nodes-101/gnosis/nethermind/baremetal.md)
+* [🔴 Optimism](archive-nodes-101/optimism/README.md)
+  * [🖥️ Baremetal](archive-nodes-101/optimism/baremetal.md)
+  * [🐳 Docker](archive-nodes-101/optimism/docker.md)
+* [♾️ Polygon](archive-nodes-101/polygon/README.md)
+  * [🐳 Docker](archive-nodes-101/polygon/docker.md)
+* [🌟 Starknet](archive-nodes-101/starknet/README.md)
+  * [🧑‍🚒 Firehose](archive-nodes-101/starknet/firehose/README.md)
+    * [💻 Baremetal](archive-nodes-101/starknet/firehose/baremetal.md)
+    * [🐳 Docker](archive-nodes-101/starknet/firehose/docker.md)
