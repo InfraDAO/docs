@@ -1,5 +1,14 @@
 # 🖥️ Baremetal
 
+---
+description: 'Authors: [Payne | StakeSquid]'
+---
+
+## System Requirements
+
+<table data-full-width="false"><thead><tr><th align="center">CPU</th><th width="140" align="center">OS</th><th width="180" align="center">RAM</th><th align="center">DISK</th></tr></thead><tbody><tr><td align="center">4c/8T</td><td align="center">Ubuntu 22.04</td><td align="center">>= 16GB</td><td align="center">>= 8TB</td></tr></tbody></table>
+
+
 ## Pre-requisites
 
 ```bash
