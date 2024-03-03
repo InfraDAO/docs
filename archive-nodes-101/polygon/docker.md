@@ -220,6 +220,7 @@ services:
     restart: unless-stopped
     expose:
       - "26657" # RPC
+      - "1317" # REST
     ports:
       - "26656:26656" # P2P
     networks:
