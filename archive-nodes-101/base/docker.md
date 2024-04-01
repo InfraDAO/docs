@@ -48,7 +48,7 @@ Set an A record for a domain, you need to access the domain's DNS settings and c
 
 ### Create base directory
 
-The first command, `mkdir base`, will create a new directory named polygon in the current location. The second command, `cd base`, will change your current working directory to the newly created base directory. Now you are inside the base directory and can start storing docker-compose and related files in it.
+The first command, `mkdir base`, will create a new directory named base in the current location. The second command, `cd base`, will change your current working directory to the newly created base directory. Now you are inside the base directory and can start storing docker-compose and related files in it.
 
 ```bash
 mkdir base
