@@ -17,6 +17,7 @@
 * [🏔️ Avalanche](archive-nodes-101/avalanche/README.md)
   * [🐳 Docker](archive-nodes-101/avalanche/docker.md)
 * [🔵 Base](archive-nodes-101/base/README.md)
+  * [💻 Baremetal](archive-nodes-101/base/baremetal.md)
   * [🐳 Docker](archive-nodes-101/base/docker.md)
 * [🟨 Celo](archive-nodes-101/celo/README.md)
   * [🐳 Docker](archive-nodes-101/celo/docker.md)
