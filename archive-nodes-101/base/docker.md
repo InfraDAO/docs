@@ -8,10 +8,10 @@ _Last updated at date: 14 May 2024_
 
 ## System Requirements
 
-<table data-full-width="false"><thead><tr><th align="center">CPU</th><th width="140" align="center">OS</th><th width="180" align="center">RAM</th><th align="center">DISK</th></tr></thead><tbody><tr><td align="center">8c CPU</td><td align="center">Ubuntu 22.04</td><td align="center">>= 16GB</td><td align="center">>= 3.5TB</td></tr></tbody></table>
+<table data-full-width="false"><thead><tr><th align="center">CPU</th><th width="140" align="center">OS</th><th width="180" align="center">RAM</th><th align="center">DISK</th></tr></thead><tbody><tr><td align="center">8c CPU</td><td align="center">Ubuntu 22.04</td><td align="center">>= 16GB</td><td align="center">>= 4.5TB</td></tr></tbody></table>
 
 {% hint style="info" %}
-_Note: The Base archive node consumes 3.5 TB of space on May 12.2024_
+_Note: The Base archive node consumes 4.1 TB of space on May 14.2024_
 {% endhint %}
 
 ## Base 🔵
