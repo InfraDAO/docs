@@ -46,3 +46,8 @@
   * [🧑‍🚒 Firehose](archive-nodes-101/starknet/firehose/README.md)
     * [💻 Baremetal](archive-nodes-101/starknet/firehose/baremetal.md)
     * [🐳 Docker](archive-nodes-101/starknet/firehose/docker.md)
+* [📜 Scroll](archive-nodes-101/scroll/README.md)
+  * [🐳 Docker](archive-nodes-101/scroll/docker.md)
+  * [💻 Baremetal](archive-nodes-101/scroll/baremetal.md)
+* [🔲 Linea](archive-nodes-101/linea/README.md)
+  * [💻 Baremetal](archive-nodes-101/linea/baremetal.md)
