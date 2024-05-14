@@ -1,10 +1,10 @@
 ---
-description: 'Authors: [Vince | Nodeify]'
+description: 'Authors: [Vince | Nodeify, man4ela | catapulta]'
 ---
 
 # 🐳 Docker
 
-_Last updated at date: 12 May 2024_
+_Last updated at date: 14 May 2024_
 
 ## System Requirements
 
@@ -370,7 +370,7 @@ docker logs opnode -f --tail 100
 
 {% code overflow="wrap" %}
 ```bash
-curl --data '{"method":"eth_syncing","params":[],"id":1,"jsonrpc":"2.0"}' -H "Content-Type: application/json" -X POST https://{DOMAIN}/geth
+curl --data '{"method":"eth_syncing","params":[],"id":1,"jsonrpc":"2.0"}' -H "Content-Type: application/json" -X POST https://{YOUR_DOMAIN}/geth
 ```
 {% endcode %}
 
@@ -378,10 +378,12 @@ The result will return `false` if a node is fully synced
 
 **Alternatively you can run**
 
-```
+```bash
 curl -d '{"id":0,"jsonrpc":"2.0","method":"eth_getBlockByNumber","params":["latest",false]}' \
-  -H "Content-Type: application/json" https://{DOMAIN}/geth
+  -H "Content-Type: application/json" https://{YOUR_DOMAIN}/geth
 ```
+
+and it will return more details about syncing progress
 
 {% hint style="warning" %}
 Sync speed will be highly dependent on your Layer 1 RPC
