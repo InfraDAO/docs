@@ -142,8 +142,8 @@ pnpm -v
 
 ```bash
 mkdir -p /root/github
-mkdir -p /root/data/base/geth/op-node
-mkdir -p /root/data/base/geth/op-erigon
+mkdir -p /root/data/base/op-node
+mkdir -p /root/data/base/op-erigon
 ```
 
 ### Build op-node
@@ -192,8 +192,8 @@ Nice=0
 LimitNOFILE=200000
 WorkingDirectory=/root/data/base/op-node/
 ExecStart=/root/data/optimism/op-node/bin/op-node \
-        --l1=http://10.120.10.116:9656 \
-        --l1.beacon=http://10.120.10.116:5052 \
+        --l1=http://<your_l1_eth_node>:9656 \
+        --l1.beacon=http://<your_l1_eth_beacon>:5052 \
         --l1.trustrpc=true \
         --l1.rpckind=erigon \
         --l2=http://0.0.0.0:8552 \
