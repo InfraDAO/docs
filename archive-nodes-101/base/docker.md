@@ -4,14 +4,14 @@ description: 'Authors: [Vince | Nodeify, man4ela | catapulta]'
 
 # 🐳 Docker
 
-_Last updated at date: 14 May 2024_
+_Last updated at date: 13th June 2024_
 
 ## System Requirements
 
-<table data-full-width="false"><thead><tr><th align="center">CPU</th><th width="140" align="center">OS</th><th width="180" align="center">RAM</th><th align="center">DISK</th></tr></thead><tbody><tr><td align="center">8c CPU</td><td align="center">Ubuntu 22.04</td><td align="center">>= 16GB</td><td align="center">>= 4.5TB</td></tr></tbody></table>
+<table data-full-width="false"><thead><tr><th align="center">CPU</th><th width="140" align="center">OS</th><th width="180" align="center">RAM</th><th align="center">DISK</th></tr></thead><tbody><tr><td align="center">8c CPU</td><td align="center">Ubuntu 22.04</td><td align="center">>= 16GB</td><td align="center">>= 5TB</td></tr></tbody></table>
 
 {% hint style="info" %}
-_Note: The Base archive node consumes 4.1 TB of space on May 14.2024_
+_Note: The Base archive node consumes 5.1 TB of space on June 13.2024_
 {% endhint %}
 
 ## Base 🔵
@@ -42,6 +42,8 @@ sudo ufw allow 80
 sudo ufw allow 443
 ```
 
+## Setting up a domain name to access RPC
+
 Get the IP address of the host machine, you can use the following command in a terminal or command prompt
 
 ```bash
@@ -49,10 +51,6 @@ curl ifconfig.me
 ```
 
 Set an A record for a domain, you need to access the domain's DNS settings and create an A record that points to the IP address of the host machine. This configuration allows users to reach your domain by resolving the domain name to the specific IP address associated with your host machine.
-
-{% hint style="info" %}
-_This step can be skipped if you aren't going to use a domain name to access your RPC. The guide specifically covers the setup using a domain generated on the server_
-{% endhint %}
 
 {% embed url="https://www.youtube.com/watch?v=QcNBLSSn8Vg" %}
 
@@ -75,14 +73,10 @@ Paste the following into the file.
 
 ```bash
 EMAIL={YOUR_EMAIL} #Your email to receive SSL renewal emails
-DOMAIN={YOUR_DOMAIN} #Quickly register and query your free domain by entering curl -X PUT bash-st.art
+DOMAIN={YOUR_DOMAIN} ##Domain should be something like rpc.mywebsite.com, e.g. linea.infradao.org
 WHITELIST={YOUR_REMOTE_MACHINE_IP} #the server's IP itself and IP's allowed to connect to RPC (eg. Indexer)
 LAYER_1_RPC={YOUR_L1_RPC} #Your preferred L1 (Ethereum, not Base) node RPC URL
 L1_BEACON={YOUR_L1_BEACON} #Your preferred L1 CL (Consensus Layer) Beacon endpoint, e.g. Lighthouse
-```
-
-```wasm
-{YOUR_DOMAIN} should look something like 117-230-108-65.bash-st.art
 ```
 
 {% hint style="info" %}
@@ -290,8 +284,8 @@ services:
       - "traefik.http.services.base.loadbalancer.server.port=8545"
       - "traefik.http.routers.base.entrypoints=websecure"
       - "traefik.http.routers.base.tls.certresolver=myresolver"
-      - "traefik.http.routers.base.rule=Host(`$DOMAIN`) && PathPrefix(`/geth`)"
-      - "traefik.http.routers.base.middlewares=base-stripprefix, ipwhitelist"
+      - "traefik.http.routers.linea.rule=Host(`${DOMAIN}`)"
+      - "traefik.http.routers.linea.middlewares=ipwhitelist"
 ```
 
 {% hint style="info" %}
@@ -358,7 +352,7 @@ docker-compose up -d
 
 ### Monitor Logs
 
-Use `docker logs` to monitor your geth and op nodes. The `-f` flag ensures you are following the log output
+Use `docker logs` to monitor your geth and op-node. The `-f` flag ensures you are following the log output
 
 ```
 docker logs geth -f --tail 100
@@ -366,11 +360,33 @@ docker logs geth -f --tail 100
 docker logs opnode -f --tail 100
 ```
 
-## Test Base RPC 🧪
+Once your Base node starts syncing, the logs should look like this:
+
+for op-geth:
+
+```bash
+INFO [05-14|00:11:15.654] Imported new potential chain segment     number=14,428,064 hash=581e26..7e597a blocks=1 txs=43 mgas=5.638  elapsed=82.078ms    mgasps=68.687  snapdiffs=161.36KiB triedirty=0.00B
+INFO [05-14|00:11:15.656] Chain head was updated                   number=14,428,064 hash=581e26..7e597a root=01059a..8a2f59 elapsed=1.210252ms
+INFO [05-14|00:11:17.759] Aborting state snapshot generation       root=2c98d7..a0d61d in=0c4e7d..ec261d at=5aebd1..a6a6dc accounts=3,270,959 slots=6,006,594 storage=650.88MiB dangling=0 elapsed=7m17.533s   eta=2h24m23.981s
+INFO [05-14|00:11:17.759] Resuming state snapshot generation       root=e19a42..4325ec in=0c4e7d..ec261d at=5aebd1..a6a6dc accounts=3,270,959 slots=6,006,594 storage=650.88MiB dangling=0 elapsed=7m17.534s   eta=2h24m24.001s
+INFO [05-14|00:11:17.790] Imported new potential chain segment     number=14,428,065 hash=ad1eb4..fa4c07 blocks=1 txs=47 mgas=7.296  elapsed=135.218ms   mgasps=53.955  snapdiffs=166.58KiB triedirty=0.00B
+```
+
+for op-node:
+
+```bash
+t=2024-05-13T22:02:48+0000 lvl=info msg="Received signed execution payload from p2p" id=0x303089f3d89660725bfccad20d306eab71eb97dc59cf87baee419d103bae13ae:14424210 peer=16Uiu2HAmEjC9jKoKzZhM4zLHrfDGth9DTL287asWALv5JY8f5UeN
+t=2024-05-13T22:02:48+0000 lvl=info msg="Optimistically queueing unsafe L2 execution payload" id=0x303089f3d89660725bfccad20d306eab71eb97dc59cf87baee419d103bae13ae:14424210
+t=2024-05-13T22:02:48+0000 lvl=info msg="Sync progress" reason="unsafe payload from sequencer" l2_finalized=0x52677a4adc91111968ee08ef4e56e2fdeb89ff71ba233c7331a227175e56365f:14407839 l2_safe=0xfb6626d86728c555db2e0722e38341f79a6646ed1955a488a9ef9df5862c2064:14407925 l2_pending_safe=0xfb6626d86728c555db2e0722e38341f79a6646ed1955a488a9ef9df5862c2064:14407925 l2_unsafe=0x303089f3d89660725bfccad20d306eab71eb97dc59cf87baee419d103bae13ae:14424210 l2_time=1715637767 l1_derived=0x6380d5a1c889e951981d6c34cfb347671650b3a5f64ab2fbd4d4a2f1d7f77fe5:19861259
+t=2024-05-13T22:02:48+0000 lvl=info msg="Advancing bq origin" origin=0x153e0928fe8b7dbbe93f227af8c1364e8c181bf5fb9a5412ccb92027299ee648:19861260 originBehind=false
+t=2024-05-13T22:02:50+0000 lvl=info msg="Reading channel" channel=004ac887def59644f5fc6c46a1c244ae frames=6
+t=2024-05-13T22:02:50+0000 lvl=info msg="Found next batch" batch_type=SpanBatch batch_timestamp=1715605199 parent_check=0xfb6626d86728c555db2e0722e38341f79a6646ed origin_check=0x1f1df86ea9abd1140e95d5bdd2b7211a4cda56ef start_epoch_number=19861236 end_epoch_number=19861252 block_count=88
+t=2024-05-13T22:02:50+0000 lvl=info msg="generated attributes in payload queue" txs=37 timestamp=1715605199
+```
 
 {% code overflow="wrap" %}
 ```bash
-curl --data '{"method":"eth_syncing","params":[],"id":1,"jsonrpc":"2.0"}' -H "Content-Type: application/json" -X POST https://{YOUR_DOMAIN}/geth
+curl --data '{"method":"eth_syncing","params":[],"id":1,"jsonrpc":"2.0"}' -H "Content-Type: application/json" -X POST https://{YOUR_DOMAIN}
 ```
 {% endcode %}
 
@@ -380,7 +396,7 @@ The result will return `false` if a node is fully synced
 
 ```bash
 curl -d '{"id":0,"jsonrpc":"2.0","method":"eth_getBlockByNumber","params":["latest",false]}' \
-  -H "Content-Type: application/json" https://{YOUR_DOMAIN}/geth
+  -H "Content-Type: application/json" https://{YOUR_DOMAIN}
 ```
 
 and it will return more details about syncing progress
