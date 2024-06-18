@@ -95,8 +95,8 @@ cd config
 ### Download genesis.json and rollup.json
 
 ```
-curl -LO https://raw.githubusercontent.com/base-org/node/main/mainnet/genesis-l2.json
-curl -LO https://raw.githubusercontent.com/base-org/node/main/mainnet/rollup.json
+curl -LO https://raw.githubusercontent.com/base-org/node/v0.8.4/mainnet/genesis-l2.json
+curl -LO https://raw.githubusercontent.com/base-org/node/v0.8.4/mainnet/rollup.json
 ```
 
 Create `base_geth_data` docker volume
