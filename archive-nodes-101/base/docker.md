@@ -116,7 +116,7 @@ If you are going to sync using the snapshot, you shouldn't need to initialize Ge
 This command runs a Docker container using the `op-geth` image. It mounts two volumes: `base_geth_data` to `/data` inside the container and `/root/base/config` to `/config`. The container then initializes the Ethereum client with a genesis file located at `/config/genesis-l2.json` using the `--datadir` option to specify the data directory as `/data`
 
 ```
-docker run -v base_geth_data:/data -v /root/base/config:/config us-docker.pkg.dev/oplabs-tools-artifacts/images/op-geth:b5fecf58ec77909c70bd15b96b32b593af0b38ff --datadir=/data init /config/genesis-l2.json
+docker run -v base_geth_data:/data -v $HOME/base/config:/config us-docker.pkg.dev/oplabs-tools-artifacts/images/op-geth:v1.101315.2 --datadir=/data init /config/genesis-l2.json
 ```
 
 {% hint style="info" %}
