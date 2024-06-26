@@ -61,5 +61,6 @@
   * [💻 Baremetal](archive-nodes-101/scroll/baremetal.md)
 * [🔲 Linea](archive-nodes-101/linea/README.md)
   * [💻 Baremetal](archive-nodes-101/linea/baremetal.md)
+  * [🐳 Docker](archive-nodes-101/linea/docker.md)
 * [🌌 Moonbeam](archive-nodes-101/moonbeam/README.md)
   * [💻 Baremetal](archive-nodes-101/moonbeam/baremetal.md)
