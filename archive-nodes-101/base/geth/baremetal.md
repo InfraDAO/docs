@@ -194,8 +194,8 @@ WorkingDirectory=/root/data/base/geth/op-node
 Environment=OP_GETH_GENESIS_FILE_PATH=/root/data/base/geth/op-geth/genesis-l2.json \
 OP_GETH_SEQUENCER_HTTP=https://mainnet-sequencer.base.org \
 OP_GETH_BOOTNODES=enode://87a32fd13bd596b2ffca97020e31aef4ddcc1bbd4b95bb633d16c1329f654f34049ed240a36b449fda5e5225d70fe40bc667f53c304b71f8e68fc9d448690b51@3.231.138.188:30301,enode://ca21ea8f176adb2e229ce2d700830c844af0ea941a1d8152a9513b966fe525e809c3a6c73a2c18a12b74ed6ec4380edf91662778fe0b79f6a591236e49e176f9@184.72.129.189:30301,enode://acf4507a211ba7c1e52cdf4eef62cdc3c32e7c9c47998954f7ba024026f9a6b2150cd3f0b734d9c78e507ab70d59ba61dfe5c45e1078c7ad0775fb251d7735a2@3.220.145.177:30301,enode://8a5a5006159bf079d06a04e5eceab2a1ce6e0f721875b2a9c96905336219dbe14203d38f70f3754686a6324f786c2f9852d8c0dd3adac2d080f4db35efc678c5@3.231.11.52:30301,enode://cdadbe835308ad3557f9a1de8db411da1a260a98f8421d62da90e71da66e55e98aaa8e90aa7ce01b408a54e4bd2253d701218081ded3dbe5efbbc7b41d7cef79@54.198.153.150:30301 \
-OP_NODE_L1_ETH_RPC=http://95.217.34.145:8545 \
-OP_NODE_L1_BEACON=http://95.217.34.145:5052 \
+OP_NODE_L1_ETH_RPC={L1 RPC URL} \
+OP_NODE_L1_BEACON={L1 BEACON RPC URL} \
 OP_NODE_L2_ENGINE_AUTH= /root/data/base/geth/op-geth/jwt.hex \
 OP_NODE_L2_ENGINE_RPC=http://0.0.0.0:8551 \
 OP_NODE_LOG_LEVEL=info \
@@ -217,8 +217,8 @@ OP_NODE_ROLLUP_LOAD_PROTOCOL_VERSIONS=true \
 OP_NODE_L1_TRUST_RPC=true
 
 ExecStart=/root/github/optimism/op-node/bin/op-node \
---l1=http://95.217.34.145:8545 \
---l1.beacon=http://95.217.34.145:5052 \
+--l1={L1 RPC URL} \
+--l1.beacon={L1 BEACON RPC URL} \
 --l2=http://0.0.0.0:8551 \
 --l2.jwt-secret=/root/data/base/geth/op-geth/jwt.hex \
 --rollup.config=/root/data/base/geth/op-geth/rollup.json
@@ -263,6 +263,7 @@ _#The binary is built at /root/github/op-geth/build/bin/geth_
 cd /root/data/base/geth/op-geth/
 
 openssl rand -hex 32 > /root/data/base/geth/op-geth/jwt.txt
+
 curl -LO https://raw.githubusercontent.com/base-org/node/main/mainnet/genesis-l2.json 
 curl -LO https://raw.githubusercontent.com/base-org/node/main/mainnet/rollup.json
 
