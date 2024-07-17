@@ -22,21 +22,21 @@ _Note: The Linea archive node consumes 1.5 TB of space on May 14.2024_
 
 Update, upgrade, and clean the system, and then firewall management (ufw), Docker, and the Git version control system.
 
-```
+```bash
 sudo apt update -y && sudo apt upgrade -y && sudo apt auto-remove -y
 sudo apt install docker.io docker-compose git ufw -y
 ```
 
 Set explicit default UFW rules
 
-```
+```bash
 sudo ufw default deny incoming
 sudo ufw default allow outgoing
 ```
 
 Allow SSH, HTTP and HTTPS
 
-```
+```bash
 sudo ufw allow 22/tcp
 sudo ufw allow 80
 sudo ufw allow 443
@@ -44,7 +44,7 @@ sudo ufw allow 443
 
 Enable Firewall
 
-```
+```bash
 sudo ufw enable
 ```
 
@@ -52,7 +52,7 @@ sudo ufw enable
 
 Get the IP address of the host machine, you can use the following command in a terminal or command prompt
 
-```
+```bash
 curl ifconfig.me
 ```
 
@@ -64,14 +64,14 @@ Set an A record for a domain, you need to access the domain's DNS settings and c
 
 The first command, `mkdir Linea`, will create a new directory named Linea in the current location. The second command, `cd Linea`, will change your current working directory to the newly created base directory. Now you are inside the base directory and can start storing docker-compose and related files in it.
 
-```
+```bash
 mkdir Linea
 cd Linea
 ```
 
 ### Create .env file
 
-```
+```bash
 sudo nano .env
 ```
 
@@ -89,7 +89,7 @@ ctrl + x and y to save file
 
 #### Make configuration directory
 
-```
+```bash
 mkdir config
 
 cd config
@@ -97,7 +97,7 @@ cd config
 
 #### Download genesis.json
 
-```
+```bash
 curl -LO https://docs.linea.build/files/geth/mainnet/genesis.json
 ```
 
@@ -105,17 +105,17 @@ curl -LO https://docs.linea.build/files/geth/mainnet/genesis.json
 
 _Return to Linea directory_
 
-```
+```bash
 cd ~/linea
 ```
 
 _Create and paste the following into the docker-compose.yml_
 
-```
+```bash
 sudo nano docker-compose.yml
 ```
 
-```
+```bash
 version: '3.9'
 
 networks:
@@ -227,7 +227,7 @@ ctrl + x and y to save file
 
 ### Run Linea Node
 
-```
+```bash
 docker-compose up -d
 ```
 
@@ -235,7 +235,7 @@ docker-compose up -d
 
 Use `docker logs` to monitor your Linea node. The `-f` flag ensures you are following the log output
 
-```
+```bash
 docker logs linea-mainnet -f --tail 100
 ```
 
@@ -251,7 +251,7 @@ Feb 26 01:14:40 tiberian-infradao geth[118326]: INFO [02-26|01:14:40.776] Import
 
 You can call the JSON-RPC API methods to confirm the node is running. For example, call [`eth_syncing`](https://besu.hyperledger.org/public-networks/reference/api#eth\_syncing) to return the synchronization status. For example the starting, current, and highest block, or `false` if not synchronizing (or if the head of the chain has been reached)
 
-```
+```bash
 curl https://{YOUR_DOMAIN} \
         -X POST \
         -H "Content-Type: application/json" \
