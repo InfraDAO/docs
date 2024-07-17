@@ -66,4 +66,5 @@
   * [💻 Baremetal](archive-nodes-101/moonbeam/baremetal.md)
 * [💥 Blast](archive-nodes-101/blast/README.md)
   * [💻 Baremetal](archive-nodes-101/blast/baremetal.md)
-* [♻️ Fuse](archive-nodes-101/fuse.md)
+* [♻️ Fuse](archive-nodes-101/fuse/README.md)
+  * [💻 Baremetal](archive-nodes-101/fuse/baremetal.md)
