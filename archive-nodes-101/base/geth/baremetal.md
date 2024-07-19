@@ -6,12 +6,12 @@ description: 'Authors: [man4ela | catapulta.eth]'
 
 ## System Requirements
 
-|      CPU     |           OS           |      RAM     |           DISK          |
-| :----------: | :--------------------: | :----------: | :---------------------: |
-| 8+ cores CPU | Debian 12/Ubuntu 22.04 | => 16 GB RAM | 3.5TB+ (NVME preffered) |
+|      CPU     |           OS           |      RAM     |          DISK         |
+| :----------: | :--------------------: | :----------: | :-------------------: |
+| 8+ cores CPU | Debian 12/Ubuntu 22.04 | => 16 GB RAM | 6TB+ (NVME preffered) |
 
 {% hint style="info" %}
-_The Base archive node reached a size of 3.1TB by April 17, 2024_
+_The Base archive node reached a size of 6.1TB by July 15, 2024_
 {% endhint %}
 
 ## Base <mark style="color:blue;">🔵</mark>
@@ -93,11 +93,18 @@ Ctrl+a+d
 
 ### Install go
 
-{% code overflow="wrap" fullWidth="false" %}
-```bash
-sudo wget https://go.dev/dl/go1.21.6.linux-amd64.tar.gz && sudo rm -rf /usr/local/go && sudo tar -C /usr/local -xzf go1.21.6.linux-amd64.tar.gz && rm go1.21.6.linux-amd64.tar.gz
-```
-{% endcode %}
+<pre class="language-bash" data-overflow="wrap" data-full-width="false"><code class="lang-bash">sudo wget https://go.dev/dl/go1.21.6.linux-amd64.tar.gz &#x26;&#x26; sudo rm -rf /usr/local/go &#x26;&#x26; sudo tar -C /usr/local -xzf go1.21.6.linux-amd64.tar.gz &#x26;&#x26; rm go1.21.6.linux-amd64.tar.gz
+
+#to verify Go installation
+go version
+
+#If it returns Command 'go' not found simply run 
+echo 'export PATH=$PATH:/usr/local/go/bin:/root/.local/bin' >> /root/.bashrc
+<strong>
+</strong><strong>#and then apply changes with
+</strong>
+source /root/.bashrc
+</code></pre>
 
 ### Install nvm
 
@@ -114,15 +121,15 @@ curl -L https://foundry.paradigm.xyz | bash
 ### Install foundry
 
 ```bash
-foundryup
+source /root/.bashrc #or start a new terminal session to use foundryup
 
-source /root/.bashrc
+foundryup
 ```
 
 ### Install node and yarn
 
 ```bash
-nvm install 16 && npm install --global yarn && nvm use 16 && npm -g install pnpm
+nvm install 18.12.0 && npm install --global yarn && nvm use 18.12.0 && npm -g install pnpm
 
 source /root/.bashrc
 ```
@@ -130,7 +137,7 @@ source /root/.bashrc
 ### Check if go and all dependancies are installed
 
 ```bash
-go version
+go version 
 nvm -v
 npm -v
 yarn -v
@@ -154,7 +161,7 @@ git clone https://github.com/ethereum-optimism/optimism.git
 
 cd optimism
 
-git checkout v1.7.0
+git checkout v1.7.7
 
 nvm install && npm install --global yarn && nvm use node && npm -g install pnpm
 
@@ -250,7 +257,7 @@ git clone https://github.com/ethereum-optimism/op-geth.git
 
 cd op-geth
 
-git checkout v1.101308.2
+git checkout v1.101315.2
 
 make geth
 ```
