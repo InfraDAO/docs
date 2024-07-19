@@ -30,7 +30,7 @@ Before you start, make sure that you have your own synced Ethereum L1 RPC URL (e
 ```bash
 sudo apt update -y && sudo apt upgrade -y && sudo apt autoremove -y
 
-sudo apt install -y git make wget gcc pkg-config libusb-1.0-0-dev libudev-dev jq gcc g++ curl libssl-dev screen apache2-utils build-essential pkg-config
+sudo apt install -y git make wget aria2 gcc pkg-config libusb-1.0-0-dev libudev-dev jq gcc g++ curl libssl-dev screen apache2-utils build-essential pkg-config
 ```
 {% endcode %}
 
@@ -269,7 +269,7 @@ _#The binary is built at /root/github/op-geth/build/bin/geth_
 ```bash
 cd /root/data/base/geth/op-geth/
 
-openssl rand -hex 32 > /root/data/base/geth/op-geth/jwt.txt
+openssl rand -hex 32 > /root/data/base/geth/op-geth/jwt.hex
 
 curl -LO https://raw.githubusercontent.com/base-org/node/main/mainnet/genesis-l2.json 
 curl -LO https://raw.githubusercontent.com/base-org/node/main/mainnet/rollup.json
