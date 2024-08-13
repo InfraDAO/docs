@@ -140,7 +140,7 @@ Copy/Paste and edit `INSERT_YOUR_NODE_NAME` and `--db-cache` according to your p
 
 ```bash
 [Unit]
-Description="Moonbeam systemd service"
+Description="Moonbeam service"
 After=network.target
 StartLimitIntervalSec=0
 
@@ -153,19 +153,27 @@ SyslogIdentifier=moonbeam
 SyslogFacility=local7
 KillSignal=SIGHUP
 ExecStart=/var/lib/moonbeam-data/moonbeam \
-     --state-pruning=archive \
-     --trie-cache-size 1073741824 \
-     --db-cache 64000 \
-     --base-path /var/lib/moonbeam-data \
-     --ethapi=debug,trace,txpool \
-     --wasm-runtime-overrides=/var/lib/moonbeam-data/wasm \
-     --runtime-cache-size 64 \
-     --chain moonbeam \
-     --unsafe-rpc-external \
-     --rpc-cors="*" \
-     --name "INSERT_YOUR_NODE_NAME" \
-     -- \
-     --name="INSERT_YOUR_NODE_NAME (Embedded Relay)"
+--port 30333 \
+--rpc-port 9944 \
+--execution wasm \
+--wasm-execution compiled \
+--state-pruning=archive \
+--trie-cache-size 1073741824 \
+--runtime-cache-size 64 \
+--max-past-logs 100000 \
+--rpc-max-response-size 128 \
+--ethapi debug,trace,txpool \
+--wasm-runtime-overrides /var/lib/moonbeam-data/wasm \
+--unsafe-rpc-external \
+--rpc-cors all \
+--db-cache 64000 \
+--base-path /var/lib/moonbeam-data \
+--chain moonbeam \
+--name "INSERT_YOUR_NODE_NAME" \
+-- \
+--port 30334 \
+--name="INSERT_YOUR_NODE_NAME (Embedded Relay)"
+
 
 [Install]
 WantedBy=multi-user.target
