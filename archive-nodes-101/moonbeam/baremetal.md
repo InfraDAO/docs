@@ -153,15 +153,12 @@ SyslogIdentifier=moonbeam
 SyslogFacility=local7
 KillSignal=SIGHUP
 ExecStart=/var/lib/moonbeam-data/moonbeam \
---port 30333 \
 --rpc-port 9944 \
 --execution wasm \
 --wasm-execution compiled \
---state-pruning=archive \
+--state-pruning archive \
 --trie-cache-size 1073741824 \
 --runtime-cache-size 64 \
---max-past-logs 100000 \
---rpc-max-response-size 128 \
 --ethapi debug,trace,txpool \
 --wasm-runtime-overrides /var/lib/moonbeam-data/wasm \
 --unsafe-rpc-external \
@@ -171,9 +168,7 @@ ExecStart=/var/lib/moonbeam-data/moonbeam \
 --chain moonbeam \
 --name "INSERT_YOUR_NODE_NAME" \
 -- \
---port 30334 \
---name="INSERT_YOUR_NODE_NAME (Embedded Relay)"
-
+--name "INSERT_YOUR_NODE_NAME (Embedded Relay)"
 
 [Install]
 WantedBy=multi-user.target
@@ -223,7 +218,30 @@ Syncing 27.0 bps, target=#6051603 (30 peers), best: #3053702 (0xe669…1876), fi
 
 As Moonbeam development continues, it will sometimes be necessary to upgrade your node software.
 
-To update moonbeam client, you can keep your existing chain data in tact, and only update the binary by following these steps:
+{% hint style="warning" %}
+IMPORTANT NOTE: Make sure you update your tracing runtime overrides each time there is a new runtime upgrade, otherwise you won't be able to support the trace/debug/txpool API properly
+{% endhint %}
+
+#### For trace/debug/txpool API support
+
+```bash
+cd /root/moonbeam-runtime-overrides
+git fetch && git pull
+
+sudo systemctl stop moonbeam.service
+
+rm -rf /var/lib/moonbeam-data/wasm
+
+mv moonbeam-runtime-overrides/wasm /var/lib/moonbeam-data
+
+rm /var/lib/moonbeam-data/wasm/moonbase-runtime-* &&  rm /var/lib/moonbeam-data/wasm/moonriver-runtime-*
+
+sudo chmod ugo+x /var/lib/moonbeam-data/wasm/*
+
+sudo systemctl restart moonbeam.service
+```
+
+To update **moonbeam** client, you can keep your existing chain data in tact, and only update the binary by following these steps:
 
 1. _Stop the systemd service_
 
