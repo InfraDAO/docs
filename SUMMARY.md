@@ -21,7 +21,7 @@
     * [💻 Baremetal](archive-nodes-101/base/erigon/baremetal.md)
   * [GETH](archive-nodes-101/base/geth/README.md)
     * [💻 Baremetal](archive-nodes-101/base/geth/baremetal.md)
-    * [🐳 Docker](archive-nodes-101/base/geth/docker.md)
+    * [🐳 Docker](archive-nodes-101/base/docker.md)
 * [🔔 Binance](archive-nodes-101/binance/README.md)
   * [Erigon](archive-nodes-101/binance/erigon/README.md)
     * [💻 Baremetal](archive-nodes-101/binance/erigon/baremetal.md)

@@ -1,10 +1,10 @@
 ---
-description: 'Authors: [Vince | Nodeify, man4ela | catapulta]'
+description: 'Authors: [Vince | Nodeify]'
 ---
 
 # 🐳 Docker
 
-_Last updated at date: 13th June 2024_
+_Last updated at date: 10.04.2024 - updated opgeth and opnode images_
 
 ## System Requirements
 
@@ -114,7 +114,7 @@ If you are going to sync using the snapshot, you shouldn't need to initialize Ge
 This command runs a Docker container using the `op-geth` image. It mounts two volumes: `base_geth_data` to `/data` inside the container and `/root/base/config` to `/config`. The container then initializes the Ethereum client with a genesis file located at `/config/genesis-l2.json` using the `--datadir` option to specify the data directory as `/data`
 
 ```
-docker run -v base_geth_data:/data -v $HOME/base/config:/config us-docker.pkg.dev/oplabs-tools-artifacts/images/op-geth:v1.101315.2 --datadir=/data init /config/genesis-l2.json
+docker run -v base_geth_data:/data -v /root/base/config:/config us-docker.pkg.dev/oplabs-tools-artifacts/images/op-geth:0402d543c3d0cff3a3d344c0f4f83809edb44f10 --datadir=/data init /config/genesis-l2.json
 ```
 
 {% hint style="info" %}
@@ -214,7 +214,6 @@ services:
       - OP_NODE_METRICS_ADDR=0.0.0.0
       - OP_NODE_METRICS_ENABLED=true
       - OP_NODE_METRICS_PORT=7300
-      - OP_NODE_NETWORK=base-mainnet
       - OP_NODE_P2P_AGENT=base
       - OP_NODE_P2P_BOOTNODES=enr:-J24QNz9lbrKbN4iSmmjtnr7SjUMk4zB7f1krHZcTZx-JRKZd0kA2gjufUROD6T3sOWDVDnFJRvqBBo62zuF-hYCohOGAYiOoEyEgmlkgnY0gmlwhAPniryHb3BzdGFja4OFQgCJc2VjcDI1NmsxoQKNVFlCxh_B-716tTs-h1vMzZkSs1FTu_OYTNjgufplG4N0Y3CCJAaDdWRwgiQG,enr:-J24QH-f1wt99sfpHy4c0QJM-NfmsIfmlLAMMcgZCUEgKG_BBYFc6FwYgaMJMQN5dsRBJApIok0jFn-9CS842lGpLmqGAYiOoDRAgmlkgnY0gmlwhLhIgb2Hb3BzdGFja4OFQgCJc2VjcDI1NmsxoQJ9FTIv8B9myn1MWaC_2lJ-sMoeCDkusCsk4BYHjjCq04N0Y3CCJAaDdWRwgiQG,enr:-J24QDXyyxvQYsd0yfsN0cRr1lZ1N11zGTplMNlW4xNEc7LkPXh0NAJ9iSOVdRO95GPYAIc6xmyoCCG6_0JxdL3a0zaGAYiOoAjFgmlkgnY0gmlwhAPckbGHb3BzdGFja4OFQgCJc2VjcDI1NmsxoQJwoS7tzwxqXSyFL7g0JM-KWVbgvjfB8JA__T7yY_cYboN0Y3CCJAaDdWRwgiQG,enr:-J24QHmGyBwUZXIcsGYMaUqGGSl4CFdx9Tozu-vQCn5bHIQbR7On7dZbU61vYvfrJr30t0iahSqhc64J46MnUO2JvQaGAYiOoCKKgmlkgnY0gmlwhAPnCzSHb3BzdGFja4OFQgCJc2VjcDI1NmsxoQINc4fSijfbNIiGhcgvwjsjxVFJHUstK9L1T8OTKUjgloN0Y3CCJAaDdWRwgiQG,enr:-J24QG3ypT4xSu0gjb5PABCmVxZqBjVw9ca7pvsI8jl4KATYAnxBmfkaIuEqy9sKvDHKuNCsy57WwK9wTt2aQgcaDDyGAYiOoGAXgmlkgnY0gmlwhDbGmZaHb3BzdGFja4OFQgCJc2VjcDI1NmsxoQIeAK_--tcLEiu7HvoUlbV52MspE0uCocsx1f_rYvRenIN0Y3CCJAaDdWRwgiQG
       - OP_NODE_P2P_LISTEN_IP=0.0.0.0
@@ -277,13 +276,12 @@ services:
       - --rollup.sequencerhttp=https://mainnet-sequencer.base.org
     labels:
       - "traefik.enable=true"
-      - "traefik.http.middlewares.base-stripprefix.stripprefix.prefixes=/geth"
       - "traefik.http.routers.base.service=base" #https
       - "traefik.http.services.base.loadbalancer.server.port=8545"
       - "traefik.http.routers.base.entrypoints=websecure"
       - "traefik.http.routers.base.tls.certresolver=myresolver"
-      - "traefik.http.routers.linea.rule=Host(`${DOMAIN}`)"
-      - "traefik.http.routers.linea.middlewares=ipwhitelist"
+      - "traefik.http.routers.base.rule=Host(`$DOMAIN`)"
+      - "traefik.http.routers.base.middlewares=ipwhitelist"
 ```
 
 {% hint style="info" %}
