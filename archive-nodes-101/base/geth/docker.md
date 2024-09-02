@@ -50,9 +50,7 @@ Get the IP address of the host machine, you can use the following command in a t
 curl ifconfig.me
 ```
 
-Set an A record for a domain, you need to access the domain's DNS settings and create an A record that points to the IP address of the host machine. This configuration allows users to reach your domain by resolving the domain name to the specific IP address associated with your host machine.
-
-{% embed url="https://www.youtube.com/watch?v=QcNBLSSn8Vg" %}
+Set an A record for a domain, you need to access the domain's DNS settings and create an A record that points to the IP address of the host machine. This configuration allows users to reach your domain by resolving the domain name to the specific IP address associated with your host machine.  Example video of [How to Point a Domain Name to an IP Address](https://www.youtube.com/watch?v=QcNBLSSn8Vg)
 
 ### Create base directory
 
