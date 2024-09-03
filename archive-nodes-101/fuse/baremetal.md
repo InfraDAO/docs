@@ -9,7 +9,7 @@ Authors: \[man4ela | catapulta.eth]
 | 4 vCPU | Debian 12/Ubuntu 22.04 | <p>8GB min</p><p>16GB Recommended</p> | 2.5TB+ (SSD) |
 
 {% hint style="info" %}
-_The Fuse archival node has a size of 2.4TB on July 3rd, 2024_
+_The Fuse archival node has a size of 2.5TB on Septmber 3rd, 2024_
 {% endhint %}
 
 ### Pre-Requisites
@@ -224,7 +224,7 @@ Paste the following configuration into the file:
     "DiscoveryEnabled": true,
     "WebSocketsEnabled": true,
     "StoreReceipts" : true,
-    "ChainSpecPath": "/root/fuse-archive/chainspec/fuse.json",
+    "ChainSpecPath": "chainspec/fuse.json",
     "BaseDbPath": "nethermind_db/fuse_archive",
     "LogFileName": "fuse_archive.logs.txt"
   },
@@ -245,18 +245,17 @@ Paste the following configuration into the file:
   "Metrics": {
     "NodeName": "Fuse_archive"
   },
+  "Receipt": {
+    "TxLookupLimit": 0
+  },
   "Bloom": {
-    "IndexLevelBucketSizes": [
-      16,
-      16,
-      16
-    ]
+    "IndexLevelBucketSizes": [ 16, 16, 16, 16 ]
   },
   "Pruning": {
     "Mode": "None"
   },
   "Mining": {
-    "MinGasPrice": "10000000000"
+    "MinGasPrice": "1000000000"
   },
   "Merge": {
     "Enabled": false
