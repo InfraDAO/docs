@@ -6,18 +6,23 @@ description: 'Authors: [payne | stakesquid]'
 
 ## System Requirements
 
-|      CPU     |           OS           |      RAM     |           DISK          |
-| :----------: | :--------------------: | :----------: | :---------------------: |
-| 8+ cores CPU | Debian 12/Ubuntu 22.04 | => 16 GB RAM | 2TB+ (NVME preffered) |
+|      CPU     |           OS           |      RAM     |                         DISK                         |
+| :----------: | :--------------------: | :----------: | :--------------------------------------------------: |
+| 8+ cores CPU | Debian 12/Ubuntu 22.04 | => 16 GB RAM | <p>2TB+ op-erigon<br><br>3.5TB+ l2geth (legacy) </p> |
 
 {% hint style="info" %}
-_The Optimism archive node reached a size of 1.3TB by May 2, 2024_
+_Op-erigon reached a size of 1.6TB by Sep 2, 2024_\
+_L2-geth is 3.4TB_
 {% endhint %}
 
 ## Optimism <mark style="color:blue;">🔵</mark>
 
 {% hint style="warning" %}
 Before you start, make sure that you have your own synced Ethereum L1 RPC URL (e.g. Erigon) and L1 Consensus Layer Beacon endpoint (e.g. Lighthouse) ready.
+{% endhint %}
+
+{% hint style="warning" %}
+To serve pre-bedrock eth\_calls, you will also need an l2geth (legacy) node. Instructions for how to set up an l2geth node can be found in [#optimism-l2-geth](../geth/baremetal.md#optimism-l2-geth "mention")
 {% endhint %}
 
 ## Pre-Requisites
@@ -62,6 +67,7 @@ sudo ufw enable
 ```
 
 ## Download a snapshot
+
 Snapshots URL: https://snapshot.testinprod.io/
 
 _Create a directory and start downloading an archive in screen session as it takes \~9 hours_
@@ -321,10 +327,9 @@ sudo journalctl -fu op-erigon.service #follow logs of op-erigon service
 ```
 
 {% hint style="info" %}
-To check or modify `op-erigon.service` parameters simply run&#x20;
+To check or modify `op-erigon.service` parameters simply run
 
 `sudo nano /etc/systemd/system/op-erigon.service`
 
 Ctrl+X and Y to save changes
 {% endhint %}
-

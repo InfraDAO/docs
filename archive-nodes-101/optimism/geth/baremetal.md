@@ -165,7 +165,7 @@ curl -s http://localhost:7878/eth/syncing?backend=l1  | jq .currentTransactionIn
 curl -s http://localhost:7878/eth/syncing?backend=l2  | jq .currentTransactionIndex
 ```
 
-## L2-GETH
+## L2-GETH <a href="#optimism-l2-geth" id="optimism-l2-geth"></a>
 
 ### Building and preparing L2 GETH
 
