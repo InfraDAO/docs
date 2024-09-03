@@ -245,9 +245,6 @@ Paste the following configuration into the file:
   "Metrics": {
     "NodeName": "Fuse_archive"
   },
-  "Receipt": {
-    "TxLookupLimit": 0
-  },
   "Bloom": {
     "IndexLevelBucketSizes": [ 16, 16, 16, 16 ]
   },
