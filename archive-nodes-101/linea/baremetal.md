@@ -4,12 +4,12 @@ Authors: \[man4ela | catapulta.eth]
 
 ### System Requirements <a href="#system-requirements" id="system-requirements"></a>
 
-| CPU                      | OS           | RAM       | DISK |
-| ------------------------ | ------------ | --------- | ---- |
-| A fast CPU with 4+ cores | Ubuntu 22.04 | 16GB+ RAM | 1TB+ |
+| CPU                      | OS           | RAM       | DISK   |
+| ------------------------ | ------------ | --------- | ------ |
+| A fast CPU with 4+ cores | Ubuntu 22.04 | 16GB+ RAM | 2.5TB+ |
 
 {% hint style="info" %}
-The Linea archive node was 1.2 TB on April 02.2024
+The Linea archive node was 2.5 TB on September 11.2024
 {% endhint %}
 
 ## 🔲 Linea
