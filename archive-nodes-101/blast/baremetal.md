@@ -8,7 +8,7 @@ Authors: \[man4ela | catapulta.eth]
 | ------------ | ---------------------- | ------------ | ----------------------- |
 | 8+ cores CPU | Debian 12/Ubuntu 22.04 | => 16 GB RAM | 1.5TB+ (NVME preffered) |
 
-_The Blast archive node has a size of 1.4TB on July 4th, 2024_
+_The Blast archive node has a size of 1.5TB on September 16th, 2024_
 
 ## Blast
 
@@ -156,7 +156,7 @@ _#The binary is built at /root/blast/blast-geth/build/bin/geth_
 ```bash
 cd /root/data/blast/geth/blast-geth
 
-openssl rand -hex 32 | tr -d "\n" > /root/data/blast/blast-geth/jwt.hex
+openssl rand -hex 32 | tr -d "\n" > /root/data/blast/geth/blast-geth/jwt.hex
 
 cd /root/blast
 
