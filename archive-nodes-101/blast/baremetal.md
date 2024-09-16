@@ -182,7 +182,7 @@ Nice=0
 LimitNOFILE=200000
 WorkingDirectory=/root/blast/blast-geth/build/bin/
 ExecStart=/root/blast/blast-geth/build/bin/geth \
-  --datadir=/root/data/blast/blast-geth/ \
+  --datadir=/root/data/blast/geth/blast-geth/ \
   --http \
   --http.corsdomain=* \
   --http.vhosts=* \
@@ -197,7 +197,7 @@ ExecStart=/root/blast/blast-geth/build/bin/geth \
   --authrpc.addr=0.0.0.0 \
   --authrpc.port=8551 \
   --authrpc.vhosts=* \
-  --authrpc.jwtsecret=/root/data/blast/blast-geth/jwt.hex \
+  --authrpc.jwtsecret=/root/data/blast/geth/blast-geth/jwt.hex \
   --syncmode=full \
   --gcmode=archive \
   --networkid=81457 \
@@ -217,19 +217,18 @@ WantedBy=multi-user.target" > /etc/systemd/system/blast-geth.service
 
 Bootstrap the node by running
 
-`/root/blast/blast-geth/build/bin/geth --datadir /root/data/blast/blast-geth/ init /root/blast/deployment/mainnet/genesis.json`
+`/root/blast/blast-geth/build/bin/geth --datadir /root/data/blast/geth/blast-geth/ init /root/blast/deployment/mainnet/genesis.json`
 
 ### Start blast-geth
 
-```bash
-sudo systemctl daemon-reload #refresh systemd configuration when changes made
-
-sudo systemctl start blast-geth.service #start blast-geth
+<pre class="language-bash"><code class="lang-bash">sudo systemctl daemon-reload #refresh systemd configuration when changes made
+<strong>
+</strong>sudo systemctl start blast-geth.service #start blast-geth
 
 sudo systemctl enable blast-geth.service #enable blast-geth service at system startup
 
 sudo journalctl -fu blast-geth.service #follow logs of blast-geth service
-```
+</code></pre>
 
 
 
