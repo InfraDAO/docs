@@ -29,6 +29,7 @@
   * [🐳 Docker](archive-nodes-101/celo/docker.md)
 * [🔷 Ethereum](archive-nodes-101/ethereum/README.md)
   * [🦦 Erigon](archive-nodes-101/ethereum/erigon/README.md)
+    * [💻 Baremetal](archive-nodes-101/ethereum/erigon/baremetal.md)
     * [🐳 Docker](archive-nodes-101/ethereum/erigon/docker.md)
   * [🦀 Reth](archive-nodes-101/ethereum/reth/README.md)
     * [💻 Baremetal](archive-nodes-101/ethereum/reth/baremetal.md)
