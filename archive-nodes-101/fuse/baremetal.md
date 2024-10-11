@@ -83,25 +83,17 @@ sudo apt install -y dotnet-sdk-8.0
 
 ### Download the Latest Nethermind Release Binary <a href="#the-release-binary" id="the-release-binary"></a>
 
-Check [release binary](https://github.com/NethermindEth/nethermind/releases) page and take the following steps to download the latest Nethermind version:
-
-Create a directory to store the binary and chain data (you might need `sudo`)
-
 ```bash
-mkdir fuse-archive
-```
-
-Use `wget` to grab the latest [release binary](https://github.com/NethermindEth/nethermind/releases) archive and output it to the directory created in the previous step:
-
-```bash
-wget https://github.com/NethermindEth/nethermind/releases/download/1.27.0/nethermind-1.27.0-220b5b85-linux-x64.zip \
--O /root/fuse-archive/ nethermind-1.27.0-220b5b85-linux-x64.zip
+wget "$(curl -s https://api.github.com/repos/NethermindEth/nethermind/releases/latest \
+        | grep "browser_download_url" \
+        | grep "linux-x64.zip" \
+        | cut -d '"' -f 4)" -O nethermind-latest-linux-x64.zip
 ```
 
 Use `unzip` to extract downloaded archive
 
 ```bash
-unzip nethermind-1.27.0-220b5b85-linux-x64.zip
+unzip nethermind-latest-linux-x64.zip
 ```
 
 ### Configuing Nethermind client
