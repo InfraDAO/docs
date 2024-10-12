@@ -198,62 +198,6 @@ Copy/Paste the following contents into the file:
 
 `Ctrl + X and Y` to exit and confirm saving changes to a file
 
-#### Create the Configuration File (`fuse_archive.cfg`)
-
-Create Configuration Directory and File:
-
-```bash
-mkdir -p /root/fuse-archive/configs
-
-nano /root/fuse-archive/configs/fuse_archive.cfg
-```
-
-Paste the following configuration into the file:
-
-```bash
-{
-  "Init": {
-    "DiscoveryEnabled": true,
-    "WebSocketsEnabled": true,
-    "StoreReceipts" : true,
-    "ChainSpecPath": "chainspec/fuse.json",
-    "BaseDbPath": "nethermind_db/fuse_archive",
-    "LogFileName": "fuse_archive.logs.txt"
-  },
-  "Network": {
-    "DiscoveryPort": 30303,
-    "P2PPort": 30303,
-    "LocalIp": "0.0.0.0",
-    "ExternalIp": "0.0.0.0"
-  },
-  "JsonRpc": {
-        "Enabled": true,
-        "Timeout": 20000,
-        "Host": "0.0.0.0",
-        "Port": 8545,
-        "WebSocketsPort": 8546,
-        "UseMinGasPriceInEstimates": true
-   },
-  "Metrics": {
-    "NodeName": "Fuse_archive"
-  },
-  "Bloom": {
-    "IndexLevelBucketSizes": [ 16, 16, 16, 16 ]
-  },
-  "Pruning": {
-    "Mode": "None"
-  },
-  "Mining": {
-    "MinGasPrice": "1000000000"
-  },
-  "Merge": {
-    "Enabled": false
-  }
-}
-```
-
-`Ctrl + X and Y` to exit and confirm saving changes to a file
-
 #### Create Data Directory to store chain data for Fuse blockchain
 
 ```bash
@@ -284,13 +228,32 @@ After=network.target
 
 [Service]
 User=root
+Environment=DOTNET_BUNDLE_EXTRACT_BASE_DIR=/root/fuse-archive/fuse-data/basedir
 ExecStart=/root/fuse-archive/Nethermind.Runner \
-  --config /root/fuse-archive/configs/fuse_archive.cfg \
-  --datadir /root/fuse-archive/fuse_data \
-  --TraceStore.Enabled true \
-  --TraceStore.BlocksToKeep 0 \
-  --TraceStore.TraceTypes Trace,Rewards \
-  --Sync.FastSync=false
+        --datadir=/root/fuse-archive/fuse-data/datadir/ \
+        --Init.DiscoveryEnabled=true \
+        --Init.WebSocketsEnabled=true \
+        --Init.StoreReceipts=true \
+        --Init.ChainSpecPath=/root/fuse-archive/chainspec/fuse.json \
+        --Network.DiscoveryPort=30303 \
+        --Network.P2PPort=30303 \
+        --Network.LocalIp=0.0.0.0 \
+        --Network.ExternalIp=0.0.0.0 \
+        --JsonRpc.Enabled=true \
+        --JsonRpc.Timeout=20000 \
+        --JsonRpc.Host=0.0.0.0 \
+        --JsonRpc.Port=9656 \
+        --JsonRpc.WebSocketsPort=9756 \
+        --JsonRpc.JwtSecretFile=/root/fuse-archive/jwt.hex \
+        --Metrics.NodeName=fuse-archive \
+        --Bloom.IndexLevelBucketSizes='[ 16, 16, 16, 16 ]' \
+        --Pruning.Mode=none \
+        --Mining.MinGasPrice=1000000000 \
+        --Merge.Enabled=false \
+        --TraceStore.Enabled=true \
+        --TraceStore.BlocksToKeep=0 \
+        --TraceStore.TraceTypes=Trace,Rewards \
+        --Sync.FastSync=false
 Restart=on-failure
 LimitNOFILE=1000000
 
