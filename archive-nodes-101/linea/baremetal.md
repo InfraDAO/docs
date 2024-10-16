@@ -76,15 +76,13 @@ go version
 
 ### Setup the Geth client to run Linea
 
-```bash
-git clone https://github.com/ethereum/go-ethereum.git
+<pre class="language-bash"><code class="lang-bash">git clone https://github.com/ethereum/go-ethereum.git
 
 cd go-ethereum
 
 #Reportedly most stable version to run Linea node 1.13.4-stable-3f907d6a
 
-git checkout 3f907d6a
-
+git checkout v1.13.15
 make geth
 
 cd
@@ -97,14 +95,14 @@ cd linea-datadir
 
 #Download Genesis file
 
-wget https://docs.linea.build/files/genesis.json
+wget https://docs.linea.build/files/geth/mainnet/genesis.json
 
 #Bootstrap the node:
 
 cd /root/go-ethereum
 
-./build/bin/geth --datadir /root/linea-datadir/ init /root/linea-datadir/genesis.json
-```
+<strong>./build/bin/geth --datadir /root/linea-datadir/ init /root/linea-datadir/genesis.json
+</strong></code></pre>
 
 ### Create service to run Linea Node
 
