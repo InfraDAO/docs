@@ -68,3 +68,5 @@
   * [💻 Baremetal](archive-nodes-101/boba/baremetal.md)
 * [🫖 BobaBNB](archive-nodes-101/bobabnb/README.md)
   * [💻 Baremetal](archive-nodes-101/bobabnb/baremetal.md)
+* [⚡ Zora](archive-nodes-101/zora/README.md)
+  * [🐳 Docker](archive-nodes-101/zora/docker.md)
