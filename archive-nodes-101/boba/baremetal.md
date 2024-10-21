@@ -15,10 +15,10 @@ _The Boba Mainnet archive node has a size of 12GB on July 29, 2024_
 {% hint style="success" %}
 Boba is built on the Optimistic Rollup developed by [Optimism](https://optimism.io/).
 
-In this guide, we are walking through the process of setting up a Boba Mainnet archive node using a forked version of Optimism's `op-erigon` and `op-node`.&#x20;
-
-Boba Network, a Layer 2 scaling solution for Ethereum, provides enhanced transaction throughput and reduced fees while maintaining Ethereum's security. By deploying a Boba archive node, you'll have access to the complete transaction history, enabling advanced queries and analytics
+In this guide, we are walking through the process of setting up a Boba Mainnet archive node using a forked version of Optimism's `op-erigon,` `op-node and l2geth`.  These three components must be configured together to ensure that the node can effectively serve all historical data, which may be necessary when an Indexer syncs a specific subgraph on the Boba Network
 {% endhint %}
+
+<figure><img src="../../.gitbook/assets/boba.png" alt=""><figcaption><p>Node Architecture</p></figcaption></figure>
 
 {% hint style="warning" %}
 Before you start, make sure that you have your own synced Ethereum L1 RPC URL (e.g. Erigon) and L1 Consensus Layer Beacon endpoint with **`all historical blobs data`** (e.g. Lighthouse) ready.
@@ -204,6 +204,119 @@ Replace {L1 RPC endpoint} and {L1 Beacon RPC endpoint} with your synced endpoint
 ```
 {% endhint %}
 
+## Build Legacy Geth (l2geth)
+
+#### Clone the Boba Legacy Monorepo and build l2geth:
+
+```bash
+cd /root/
+
+git clone https://github.com/bobanetwork/boba_legacy.git
+
+cd boba_legacy
+
+cd l2geth
+
+make geth
+```
+
+#### Create database directory for l2geth, download and extract archive snapshot:
+
+```bash
+mkdir -p /root/data/boba/boba-legacy/ && cd /root/data/boba/boba-legacy/
+
+aria2c --file-allocation=none -c -x 10 -s 10 "https://boba-db.s3.us-east-2.amazonaws.com/mainnet/boba-mainnet-geth-db-legacy.tgz"
+
+tar -xzvf boba-mainnet-geth-db-legacy.tgz
+
+rm -rf boba-mainnet-geth-db-legacy.tgz
+
+ls #to see the name of extracted archive folder
+
+mv /root/data/boba/boba-legacy/geth-1149018/* /root/data/boba/boba-legacy/
+
+rm -rf geth-1149018
+```
+
+#### Create systemd service for l2geth
+
+```bash
+sudo nano /etc/systemd/system/boba-legacy.service
+```
+
+Paste the configs and save by entering `ctrl+X` and `Y+ENTER`:
+
+```bash
+[Unit]
+Description=Boba-legacy GETH Service
+After=network.target
+StartLimitIntervalSec=60
+StartLimitBurst=3
+
+[Service]
+Type=simple
+Restart=on-failure
+RestartSec=5
+TimeoutSec=900
+User=root
+Nice=0
+LimitNOFILE=200000
+WorkingDirectory=/root/data/boba/boba-legacy/
+
+Environment=CHAIN_ID=288
+Environment=NETWORK_ID=288
+Environment=NO_USB=true
+Environment=NO_DISCOVER=true
+Environment=DATADIR=/root/data/boba/boba-legacy/
+Environment=GCMODE=archive
+Environment=IPC_DISABLE=true
+Environment=TARGET_GAS_LIMIT=11000000
+Environment=USING_OVM=true
+Environment=RPC_ENABLE=true
+Environment=RPC_ADDR=0.0.0.0
+Environment=RPC_PORT=9546
+Environment=RPC_API=eth,net,rollup,web3,debug
+Environment=RPC_CORS_DOMAIN=*
+Environment=RPC_VHOSTS=*
+Environment=WS=false
+Environment=WS_ADDR=0.0.0.0
+Environment=WS_PORT=9547
+Environment=WS_API=eth,net,rollup,web3
+Environment=WS_ORIGINS=*
+Environment=ROLLUP_BACKEND=l2
+Environment=ROLLUP_VERIFIER_ENABLE=true
+Environment=ROLLUP_READONLY=true
+Environment=BLOCK_SIGNER_KEY=6587ae678cf4fc9a33000cdbf9f35226b71dcc6a4684a31203241f9bcfd55d27
+Environment=BLOCK_SIGNER_ADDRESS=0x00000398232E2064F896018496b4b44b3D62751F
+Environment=ROLLUP_ENFORCE_FEES=true
+Environment=TURING_CREDIT_ADDRESS=0xF8D2f1b0292C0Eeef80D8F47661A9DaCDB4b23bf
+Environment=L2_BOBA_TOKEN_ADDRESS=0xa18bF3994C0Cc6E3b63ac420308E5383f53120D7
+Environment=BOBA_GAS_PRICE_ORACLE_ADDRESS=0xeE06ee2F239d2ab11792D77f3C347d919ddA0d51
+
+ExecStart=/root/boba_legacy/l2geth/build/bin/geth \
+        --datadir=/root/data/boba/boba-legacy/ \
+        --allow-insecure-unlock \
+        --mine \
+        --miner.etherbase 0x00000398232E2064F896018496b4b44b3D62751F \
+        --gcmode=archive \
+        --ws=false \
+        --nousb \
+        --port=30301 \
+        --rollup.clienthttp http://127.0.0.1:8545 \
+        --rpc \
+        --rpcaddr 0.0.0.0 \
+        --rpcport 9546 \
+        --rpcapi eth,net,rollup,web3,debug,personal \
+        --rangelimit \
+        --rpc.gascap 501000000
+
+KillSignal=SIGTERM
+
+[Install]
+WantedBy=multi-user.target
+
+```
+
 ## Build the Execution Engine (op-Erigon)
 
 ```bash
@@ -323,12 +436,26 @@ sudo systemctl start op-node.service #start op-node
 sudo nano /etc/systemd/system/op-node.service #make changes in op-node.service file
 ```
 
+#### Start l2geth
+
+```bash
+sudo systemctl daemon-reload #refresh systemd configuration when changes made
+
+sudo systemctl enable boba-legacy.service #enable l2geth service at system startup
+
+sudo systemctl start boba-legacy.service #start l2geth
+
+sudo nano /etc/systemd/system/boba-legacy.service #make changes in boba-legacy.service file
+```
+
 ### Monitor the logs for errors
 
 ```bash
 sudo journalctl -fu op-node.service #follow logs of op-node.service
 
 sudo journalctl -fu op-erigon.service #follow logs of op-erigon.service
+
+sudo journalctl -fu boba-legacy.service #follow logs of boba-legacy.service
 ```
 
 During the initial synchonization, you are expected to get following log messages from `op-node`
