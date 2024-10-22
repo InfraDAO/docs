@@ -70,3 +70,5 @@
   * [💻 Baremetal](archive-nodes-101/bobabnb/baremetal.md)
 * [⚡ Zora](archive-nodes-101/zora/README.md)
   * [🐳 Docker](archive-nodes-101/zora/docker.md)
+* [Ⓜ️ Mode](archive-nodes-101/mode/README.md)
+  * [💻 Baremetal](archive-nodes-101/mode/baremetal.md)
