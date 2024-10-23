@@ -73,3 +73,5 @@
 * [Ⓜ️ Mode](archive-nodes-101/mode/README.md)
   * [💻 Baremetal](archive-nodes-101/mode/baremetal.md)
   * [🐳 Docker](archive-nodes-101/mode/docker.md)
+* [🫚 Rootstock](archive-nodes-101/rootstock/README.md)
+  * [🐳 Docker](archive-nodes-101/rootstock/docker.md)
