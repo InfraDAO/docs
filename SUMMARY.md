@@ -75,3 +75,4 @@
   * [🐳 Docker](archive-nodes-101/mode/docker.md)
 * [🫚 Rootstock](archive-nodes-101/rootstock/README.md)
   * [🐳 Docker](archive-nodes-101/rootstock/docker.md)
+  * [💻 Baremetal](archive-nodes-101/rootstock/baremetal.md)
