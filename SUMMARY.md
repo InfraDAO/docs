@@ -77,3 +77,5 @@
 * [⚡ Zora](archive-nodes-101/zora/README.md)
   * [🐳 Docker](archive-nodes-101/zora/docker.md)
   * [💻 Baremetal](archive-nodes-101/zora/baremetal.md)
+* [✖️ X Layer](archive-nodes-101/x-layer/README.md)
+  * [🐳 Docker](archive-nodes-101/x-layer/docker.md)
