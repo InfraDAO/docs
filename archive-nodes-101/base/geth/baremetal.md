@@ -11,7 +11,7 @@ description: 'Authors: [man4ela | catapulta.eth]'
 | 8+ cores CPU | Debian 12/Ubuntu 22.04 | => 16 GB RAM | 6TB+ (NVME preffered) |
 
 {% hint style="info" %}
-_The Base archive node reached a size of 6.1TB by July 15, 2024_
+_The Base archive node reached a size of 13TB on November 30th, 2024_
 {% endhint %}
 
 ## Base <mark style="color:blue;">🔵</mark>
@@ -93,7 +93,7 @@ Ctrl+a+d
 
 ### Install go
 
-<pre class="language-bash" data-overflow="wrap" data-full-width="false"><code class="lang-bash">sudo wget https://go.dev/dl/go1.21.6.linux-amd64.tar.gz &#x26;&#x26; sudo rm -rf /usr/local/go &#x26;&#x26; sudo tar -C /usr/local -xzf go1.21.6.linux-amd64.tar.gz &#x26;&#x26; rm go1.21.6.linux-amd64.tar.gz
+<pre class="language-bash" data-overflow="wrap" data-full-width="false"><code class="lang-bash">sudo wget https://go.dev/dl/go1.22.9.linux-amd64.tar.gz &#x26;&#x26; sudo rm -rf /usr/local/go &#x26;&#x26; sudo tar -C /usr/local -xzf go1.22.9.linux-amd64.tar.gz &#x26;&#x26; rm go1.22.9.linux-amd64.tar.gz
 
 #to verify Go installation
 go version
