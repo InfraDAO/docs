@@ -161,13 +161,7 @@ git clone https://github.com/ethereum-optimism/optimism.git
 
 cd optimism
 
-git checkout v1.7.7
-
-nvm install && npm install --global yarn && nvm use node && npm -g install pnpm
-
-pnpm install
-
-pnpm build
+git checkout v1.9.5
 
 make op-node
 ```
@@ -257,7 +251,7 @@ git clone https://github.com/ethereum-optimism/op-geth.git
 
 cd op-geth
 
-git checkout v1.101315.2
+git checkout v1.101411.1
 
 make geth
 ```
