@@ -30,6 +30,7 @@
   * [💻 Baremetal](archive-nodes-101/blast/baremetal.md)
 * [🧋 Boba](archive-nodes-101/boba/README.md)
   * [💻 Baremetal](archive-nodes-101/boba/baremetal.md)
+  * [🐳 Docker](archive-nodes-101/boba/docker.md)
 * [🫖 BobaBNB](archive-nodes-101/bobabnb/README.md)
   * [💻 Baremetal](archive-nodes-101/bobabnb/baremetal.md)
 * [🟨 Celo](archive-nodes-101/celo/README.md)
