@@ -33,6 +33,7 @@
   * [🐳 Docker](archive-nodes-101/boba/docker.md)
 * [🫖 BobaBNB](archive-nodes-101/bobabnb/README.md)
   * [💻 Baremetal](archive-nodes-101/bobabnb/baremetal.md)
+  * [🐳 Docker](archive-nodes-101/bobabnb/docker.md)
 * [🟨 Celo](archive-nodes-101/celo/README.md)
   * [🐳 Docker](archive-nodes-101/celo/docker.md)
 * [🔷 Ethereum](archive-nodes-101/ethereum/README.md)
