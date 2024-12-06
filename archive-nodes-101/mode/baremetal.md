@@ -342,7 +342,6 @@ KillSignal=SIGTERM
 
 [Install]
 WantedBy=multi-user.target
-// Some code
 ```
 
 Save by entering `ctrl+X` and `Y+ENTER`
