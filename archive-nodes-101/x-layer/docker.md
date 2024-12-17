@@ -12,6 +12,39 @@ Authors: \[jLeopoldA]
 Archival Node size is 973GB as of 11/20/2024
 {% endhint %}
 
+{% hint style="warning" %}
+With their [Eggfruit upgrade](https://polygon.technology/blog/eggfruit-upgrade-incoming-polygon-zkevm-mainnet-beta-will-see-the-cdk-erigon-sequencer-go-live) in September 2024, the Polygon team made the official recommendation that all infra providers will need to begin running the cdk-erigon RPC Node. While zkEVm Node is still operational, it is no longer being maintained by the Polygon team.\
+\
+Additionally, we found slight POI divergence in our integration testing. Please use the test below as an initial screening when working with this chain.
+{% endhint %}
+
+<details>
+
+<summary>Initial Test for Proof of Indexing</summary>
+
+Due to POI divergences found with X Layer, we created an initial test below for indexers that _may_ indicate that their setup allows them to sync other subgraphs and be in majority consensus.
+
+* Sync the following subgraph: `QmWHYMV9mPZ6zoomwWSZbN24sdGSEQhy1efritMiETpxqS`
+* Query to grab the POI\
+  \
+  **Note**: Do not modify the query below - the indexer address in the query should be the 0x0 address.
+
+`{ "query": "{ proofOfIndexing(subgraph: "QmWHYMV9mPZ6zoomwWSZbN24sdGSEQhy1efritMiETpxqS", blockNumber: 3041190, blockHash: "0xa819924ad94bcf3295826d5ad916c9ef06fac8cb46a6273d3bcc7aec822e22e7", indexer: "0x0000000000000000000000000000000000000000") }" }`
+
+If there is a match for the Consensus POI provided below, it may indicate that the setup allows for syncing other subgraphs and being in majority consensus. If there is a match for the Divergent POI, this can be an indication of a data determinism issue.\
+\
+**Consensus** `0xa1223b5cbabf16d9896c2bd19099d08e5ce45c7ff308674b3ea7ada5367334bf`
+
+**Divergent** `0x411bf0293e96a1459167ef1828aa7d70cd6c2e1f8c4210e0edf0fa8827eeed69`
+
+* Shell into your index node and run this curl command
+
+`curl -s -X POST -H "Content-Type: application/json"`\
+`--data '{"query": "{ proofOfIndexing(subgraph: "QmWHYMV9mPZ6zoomwWSZbN24sdGSEQhy1efritMiETpxqS", blockNumber: 3041190, blockHash: "0xa819924ad94bcf3295826d5ad916c9ef06fac8cb46a6273d3bcc7aec822e22e7", indexer: "0x0000000000000000000000000000000000000000") }"}'`\
+`"http://localhost:8030/graphql"`
+
+</details>
+
 ## Required Installations
 
 {% hint style="info" %}
