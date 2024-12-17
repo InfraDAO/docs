@@ -20,7 +20,7 @@ Additionally, we found slight POI divergence in our integration testing. Please 
 
 <details>
 
-<summary>Initial Test for Proof of Indexing</summary>
+<summary>Indexer Test for X Layer POI</summary>
 
 Due to POI divergences found with X Layer, we created an initial test below for indexers that _may_ indicate that their setup allows them to sync other subgraphs and be in majority consensus.
 
