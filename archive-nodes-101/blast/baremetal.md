@@ -4,11 +4,11 @@ Authors: \[man4ela | catapulta.eth]
 
 ### System Requirements <a href="#system-requirements" id="system-requirements"></a>
 
-| CPU          | OS                     | RAM          | DISK                    |
-| ------------ | ---------------------- | ------------ | ----------------------- |
-| 8+ cores CPU | Debian 12/Ubuntu 22.04 | => 16 GB RAM | 1.5TB+ (NVME preffered) |
+| CPU          | OS                     | RAM          | DISK                  |
+| ------------ | ---------------------- | ------------ | --------------------- |
+| 8+ cores CPU | Debian 12/Ubuntu 22.04 | => 16 GB RAM | 4TB+ (NVME preffered) |
 
-_The Blast archive node has a size of 1.5TB on September 16th, 2024_
+_The Blast archive node has a size of 3.9TB on January 10th, 2025_
 
 ## Blast
 
