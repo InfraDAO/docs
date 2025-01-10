@@ -11,7 +11,7 @@ description: 'Authors: [payne | stakesquid]'
 | 8+ cores CPU | Debian 12/Ubuntu 22.04 | => 16 GB RAM | <p>2TB+ op-erigon<br><br>3.5TB+ l2geth (legacy) </p> |
 
 {% hint style="info" %}
-_Op-erigon reached a size of 1.6TB by Sep 2, 2024_\
+_Op-erigon reached a size of 2TB by Jan 10, 2025_\
 _L2-geth is 3.4TB_
 {% endhint %}
 
