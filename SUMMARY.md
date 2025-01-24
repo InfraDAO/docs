@@ -58,6 +58,7 @@
   * [🐳 Docker](archive-nodes-101/mode/docker.md)
 * [🌌 Moonbeam](archive-nodes-101/moonbeam/README.md)
   * [💻 Baremetal](archive-nodes-101/moonbeam/baremetal.md)
+  * [🐳 Docker](archive-nodes-101/moonbeam/docker.md)
 * [🔴 Optimism](archive-nodes-101/optimism/README.md)
   * [GETH](archive-nodes-101/optimism/geth/README.md)
     * [🖥️ Baremetal](archive-nodes-101/optimism/geth/baremetal.md)
