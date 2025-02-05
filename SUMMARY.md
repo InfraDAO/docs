@@ -92,3 +92,6 @@
 * [⚡ Zora](archive-nodes-101/zora/README.md)
   * [🐳 Docker](archive-nodes-101/zora/docker.md)
   * [💻 Baremetal](archive-nodes-101/zora/baremetal.md)
+* [🌛 Moonriver](archive-nodes-101/moonriver/README.md)
+  * [💻 Baremetal](archive-nodes-101/moonriver/baremetal.md)
+  * [🐳 Docker](archive-nodes-101/moonriver/docker.md)
