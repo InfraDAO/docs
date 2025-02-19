@@ -15,6 +15,7 @@
 * [⏫ Arbitrum](archive-nodes-101/arbitrum/README.md)
   * [💻 Baremetal](archive-nodes-101/arbitrum/baremetal.md)
   * [🐳 Docker](archive-nodes-101/arbitrum/docker.md)
+* [🔼 Arbitrum Sepolia](archive-nodes-101/arbitrum-sepolia.md)
 * [🏔️ Avalanche](archive-nodes-101/avalanche/README.md)
   * [🐳 Docker](archive-nodes-101/avalanche/docker.md)
 * [🔵 Base](archive-nodes-101/base/README.md)
@@ -98,4 +99,3 @@
 * [⚡ Zora](archive-nodes-101/zora/README.md)
   * [🐳 Docker](archive-nodes-101/zora/docker.md)
   * [💻 Baremetal](archive-nodes-101/zora/baremetal.md)
-* [🔼 Arbitrum Sepolia](archive-nodes-101/arbitrum-sepolia.md)
