@@ -98,3 +98,4 @@
 * [⚡ Zora](archive-nodes-101/zora/README.md)
   * [🐳 Docker](archive-nodes-101/zora/docker.md)
   * [💻 Baremetal](archive-nodes-101/zora/baremetal.md)
+* [🔼 Arbitrum Sepolia](archive-nodes-101/arbitrum-sepolia.md)
