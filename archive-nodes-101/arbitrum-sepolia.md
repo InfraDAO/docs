@@ -2,7 +2,7 @@
 description: 'Authors: [man4ela | catapulta.eth]'
 ---
 
-# 🔼 Arbitrum Sepolia
+# 💻 Baremetal
 
 ### System Requirements <a href="#system-requirements" id="system-requirements"></a>
 

@@ -203,7 +203,7 @@ docker compose logs sepolia-geth-1
 
 Logs will slightly resemble the image below.
 
-<figure><img src="../../.gitbook/assets/Screenshot from 2025-02-11 14-23-16.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/Screenshot from 2025-02-11 14-23-16.png" alt=""><figcaption></figcaption></figure>
 
 #### Check logs of Prysm
 
@@ -213,7 +213,7 @@ docker logs beacon-node
 
 Logs will look similar to the image below.
 
-<figure><img src="../../.gitbook/assets/spaces_DHv0OHzHXecvl5JZaSK1_uploads_WkjlHSAJcAPxVyNUCXHu_Screenshot from 2025-02-11 14-26-06.webp" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/spaces_DHv0OHzHXecvl5JZaSK1_uploads_WkjlHSAJcAPxVyNUCXHu_Screenshot from 2025-02-11 14-26-06.webp" alt=""><figcaption></figcaption></figure>
 
 #### Stop Node
 
