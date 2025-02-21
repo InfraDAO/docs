@@ -222,7 +222,7 @@ services:
 ```
 
 {% hint style="info" %}
-ctrl + x and y to save file
+Note: Bootnodes need to be updated from time to time. Actual bootnodes can be found here [https://docs.linea.build/developers/guides/run-a-node/enodes](https://docs.linea.build/developers/guides/run-a-node/enodes)
 {% endhint %}
 
 ### Run Linea Node
@@ -249,7 +249,7 @@ Feb 26 01:14:40 tiberian-infradao geth[118326]: INFO [02-26|01:14:40.776] Import
 
 ## Test Linea RPC
 
-You can call the JSON-RPC API methods to confirm the node is running. For example, call [`eth_syncing`](https://besu.hyperledger.org/public-networks/reference/api#eth\_syncing) to return the synchronization status. For example the starting, current, and highest block, or `false` if not synchronizing (or if the head of the chain has been reached)
+You can call the JSON-RPC API methods to confirm the node is running. For example, call [`eth_syncing`](https://besu.hyperledger.org/public-networks/reference/api#eth_syncing) to return the synchronization status. For example the starting, current, and highest block, or `false` if not synchronizing (or if the head of the chain has been reached)
 
 ```bash
 curl https://{YOUR_DOMAIN} \
