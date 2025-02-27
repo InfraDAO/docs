@@ -102,3 +102,5 @@
 * [⚡ Zora](archive-nodes-101/zora/README.md)
   * [🐳 Docker](archive-nodes-101/zora/docker.md)
   * [💻 Baremetal](archive-nodes-101/zora/baremetal.md)
+* [💤 zkSync Era](archive-nodes-101/zksync-era/README.md)
+  * [🐳 Docker](archive-nodes-101/zksync-era/docker.md)
