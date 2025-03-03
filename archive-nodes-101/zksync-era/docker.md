@@ -9,7 +9,7 @@ description: 'Authors: [ Ankur | Dapplooker]'
 <table data-full-width="false"><thead><tr><th>CPU</th><th>OS</th><th>RAM</th><th>DISK</th></tr></thead><tbody><tr><td>8 vCPU</td><td>Ubuntu 22.04</td><td>16 GB</td><td>10+ TB  (SSD)</td></tr></tbody></table>
 
 {% hint style="success" %}
-_The ZkSync node has a size of  5.4 TB on February 27, 2025._
+_The ZkSync node has a size of  6.5 TB on February 28, 2025._
 {% endhint %}
 
 ## Pre-requisite
