@@ -93,6 +93,8 @@
 * [📜 Scroll](archive-nodes-101/scroll/README.md)
   * [🐳 Docker](archive-nodes-101/scroll/docker.md)
   * [💻 Baremetal](archive-nodes-101/scroll/baremetal.md)
+* [🦔 Sonic](archive-nodes-101/sonic/README.md)
+  * [🐳 Docker](archive-nodes-101/sonic/docker.md)
 * [🌟 Starknet](archive-nodes-101/starknet/README.md)
   * [🧑‍🚒 Firehose](archive-nodes-101/starknet/firehose/README.md)
     * [💻 Baremetal](archive-nodes-101/starknet/firehose/baremetal.md)
