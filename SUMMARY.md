@@ -110,3 +110,5 @@
 * [⚡ Zora](archive-nodes-101/zora/README.md)
   * [🐳 Docker](archive-nodes-101/zora/docker.md)
   * [💻 Baremetal](archive-nodes-101/zora/baremetal.md)
+* [📍 Iotex](archive-nodes-101/iotex/README.md)
+  * [💻 Baremetal](archive-nodes-101/iotex/baremetal.md)
