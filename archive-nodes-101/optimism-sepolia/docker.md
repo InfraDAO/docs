@@ -14,6 +14,12 @@ description: 'Author: [Godwin]'
 The Optimism Sepolia Archive Node has a size of 2.3TB as of 3/10/2025.
 {% endhint %}
 
+{% hint style="info" %}
+Subgraphs using callHandlers requires the RPC client to support the Parity Tracing API. With Optimism sepolia we observe that `erigon` supports the parity tracing API, while `geth` does not.\
+\
+This guide shows how to set up a `geth` client.&#x20;
+{% endhint %}
+
 ## Pre-Requisites
 
 #### Update System
