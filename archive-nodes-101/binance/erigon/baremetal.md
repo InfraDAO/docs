@@ -14,11 +14,9 @@ BNB archive size on June 20th 2024 was 11TB
 
 Official Docs [https://github.com/node-real/bsc-erigon](https://github.com/node-real/bsc-erigon)
 
-
 ### Snapshots
 
-To download archive snapshots, please use the following:
-https://github.com/binance-chain/bsc-snapshots
+To download archive snapshots, please use the following: https://github.com/binance-chain/bsc-snapshots
 
 ### Install go
 
