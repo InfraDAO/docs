@@ -108,6 +108,8 @@
   * [🧑‍🚒 Firehose](archive-nodes-101/starknet/firehose/README.md)
     * [💻 Baremetal](archive-nodes-101/starknet/firehose/baremetal.md)
     * [🐳 Docker](archive-nodes-101/starknet/firehose/docker.md)
+  * [🏵️ Juno](archive-nodes-101/starknet/juno/README.md)
+    * [🐳 Docker](archive-nodes-101/starknet/juno/docker.md)
 * [✖️ X Layer](archive-nodes-101/x-layer/README.md)
   * [🐳 Docker](archive-nodes-101/x-layer/docker.md)
   * [💻 Baremetal](archive-nodes-101/x-layer/baremetal/README.md)
