@@ -47,6 +47,7 @@
   * [🐳 Docker](archive-nodes-101/bobabnb/docker.md)
 * [🟨 Celo](archive-nodes-101/celo/README.md)
   * [🐳 Docker](archive-nodes-101/celo/docker.md)
+  * [🐳 Docker L2](archive-nodes-101/celo/docker-l2.md)
 * [💒 Chapel (BNB Testnet)](archive-nodes-101/chapel-bnb-testnet/README.md)
   * [💻 Baremetal](archive-nodes-101/chapel-bnb-testnet/baremetal.md)
   * [🐳 Docker](archive-nodes-101/chapel-bnb-testnet/docker.md)
