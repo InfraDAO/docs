@@ -1,5 +1,6 @@
 ---
 description: 'Authors: [Vince | Nodeify]'
+hidden: true
 ---
 
 # 🐳 Docker
