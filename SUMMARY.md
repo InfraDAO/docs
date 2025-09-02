@@ -59,7 +59,7 @@
   * [🦀 Reth](archive-nodes-101/ethereum/reth/README.md)
     * [💻 Baremetal](archive-nodes-101/ethereum/reth/baremetal.md)
     * [🐳 Docker](archive-nodes-101/ethereum/reth/docker.md)
-* [🦄 Ethereum Sepolia](archive-nodes-101/ethereum-sepolia/README.md)
+* [🔶 Ethereum Sepolia](archive-nodes-101/ethereum-sepolia/README.md)
   * [🐉 Erigon](archive-nodes-101/ethereum-sepolia/erigon/README.md)
     * [💻 Baremetal](archive-nodes-101/ethereum-sepolia/erigon/baremetal.md)
   * [🦥 Geth](archive-nodes-101/ethereum-sepolia/geth/README.md)
