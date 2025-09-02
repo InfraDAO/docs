@@ -134,4 +134,4 @@
 * [🦄 Unichain](archive-nodes-101/unichain/README.md)
   * [🦥 Geth](archive-nodes-101/unichain/geth/README.md)
     * [🐳 Docker](archive-nodes-101/unichain/geth/docker.md)
-    * [💻 Bare Metal](archive-nodes-101/unichain/geth/bare-metal.md)
+    * [💻 Baremetal](archive-nodes-101/unichain/geth/baremetal.md)
