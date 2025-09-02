@@ -131,3 +131,7 @@
 * [⚡ Zora](archive-nodes-101/zora/README.md)
   * [🐳 Docker](archive-nodes-101/zora/docker.md)
   * [💻 Baremetal](archive-nodes-101/zora/baremetal.md)
+* [🦄 Unichain](archive-nodes-101/unichain/README.md)
+  * [🦥 Geth](archive-nodes-101/unichain/geth/README.md)
+    * [🐳 Docker](archive-nodes-101/unichain/geth/docker.md)
+    * [💻 Bare Metal](archive-nodes-101/unichain/geth/bare-metal.md)
