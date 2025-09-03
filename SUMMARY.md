@@ -124,6 +124,8 @@
   * [🦥 Geth](archive-nodes-101/unichain/geth/README.md)
     * [🐳 Docker](archive-nodes-101/unichain/geth/docker.md)
     * [💻 Baremetal](archive-nodes-101/unichain/geth/baremetal.md)
+  * [🐉 Erigon](archive-nodes-101/unichain/erigon/README.md)
+    * [🐳 Docker](archive-nodes-101/unichain/erigon/docker.md)
 * [✖️ X Layer](archive-nodes-101/x-layer/README.md)
   * [🐳 Docker](archive-nodes-101/x-layer/docker.md)
   * [💻 Baremetal](archive-nodes-101/x-layer/baremetal/README.md)
